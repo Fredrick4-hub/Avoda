@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Your Project | Request an Estimate | Avodah Contractors</title>
+  <meta name="description" content="Request an estimate from Avodah Contractors. Tell us your project type, budget, location, and timeline — we'll respond with clear next steps.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- ============ ANALYTICS PLACEHOLDERS — replace IDs and uncomment ============
+  <!~~ Google Tag Manager: GTM-XXXXXXX ~~>
+  <!~~ Google Analytics 4: G-XXXXXXXXXX ~~>
+  <!~~ Meta Pixel: XXXXXXXXXXXXXXX ~~>
+  See index.html <head> for the full copy-ready snippets.
+  ============================================================================ -->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-bar">
+    <a class="logo" href="index.html" aria-label="Avodah Contractors — home">
+      <img class="logo-img" src="images/AvodahLogo_Flat_WhiteStroke.png" alt="Avodah Contractors — Work, Worship, Service">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+      <span class="bars" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="main-nav" aria-label="Main">
+      <ul>
+        <li><a href="custom.html">Custom</a></li>
+        <li><a href="commercial.html">Commercial</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="about.html">Our Culture</a></li>
+        <li><a class="nav-cta" href="start-a-project.html" aria-current="page">Start Your Project</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="process-hero hero-start-project">
+    <img class="hero-bg" src="images/misc/start-project-bg.jpg" alt="White equestrian barn reflecting in a pond" loading="eager">
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="process-hero-content">
+        <p class="eyebrow">Start Your Project</p>
+        <h1>Request an estimate</h1>
+        <p class="lede">This is where "someday" becomes a schedule. Tell us what you're building and we'll come back with clear next steps, honest answers on budget and timeline, and a process built to carry the project from here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="form-h">
+    <div class="wrap" style="max-width:860px;">
+      <h2 id="form-h" class="center">Tell us about your project</h2>
+      <p class="form-note">All fields are required — they're exactly what we need to give you a useful first answer instead of a vague one.</p>
+      <div style="height:1.5rem;"></div>
+      <form data-demo id="project-form" novalidate>
+        <!-- ============================================================
+             FORM BACKEND: static HTML cannot submit on its own.
+             Recommended: replace this entire <form> with your JotForm
+             embed code (Build form in JotForm → Publish → Embed).
+             Keep the same fields: project type, budget range, location,
+             timeline, notes, phone, email, has-plans. See README.
+             ============================================================ -->
+        <div class="form-grid">
+          <div class="field">
+            <label for="project-form-type">Project type</label>
+            <select id="project-form-type" name="project_type" required>
+              <option value="" selected disabled>Select a project type…</option>
+              <optgroup label="Custom">
+                <option>Custom — Residential</option>
+                <option>Custom — Equestrian</option>
+                <option>Custom — Office</option>
+              </optgroup>
+              <optgroup label="Commercial">
+                <option>Commercial — Ag Building</option>
+                <option>Commercial — Other</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="field">
+            <label for="budget">Approximate budget</label>
+            <input type="range" id="budget" name="budget" min="400000" max="2000000" step="50000" value="600000"
+                   aria-describedby="budget-out">
+            <output class="range-out" id="budget-out" for="budget">$600,000</output>
+            <p class="hint">Slide to your approximate range. Most Avodah projects start around $400k.</p>
+          </div>
+          <div class="field">
+            <label for="project-form-location">Project location</label>
+            <input type="text" id="project-form-location" name="location" required
+                   placeholder="City / township &amp; county" autocomplete="address-level2">
+          </div>
+          <div class="field">
+            <label for="project-form-timeline">Desired timeline</label>
+            <input type="text" id="project-form-timeline" name="timeline" required
+                   placeholder="e.g., break ground spring 2027">
+          </div>
+          <div class="field">
+            <label for="project-form-phone">Phone</label>
+            <input type="tel" id="project-form-phone" name="phone" required autocomplete="tel"
+                   placeholder="330-555-0100">
+          </div>
+          <div class="field">
+            <label for="project-form-email">Email</label>
+            <input type="email" id="project-form-email" name="email" required autocomplete="email"
+                   placeholder="you@example.com">
+          </div>
+          <fieldset class="full">
+            <legend>Do you already have building plans?</legend>
+            <div class="radio-row">
+              <label><input type="radio" name="has_plans" value="yes" required> Yes, plans in hand</label>
+              <label><input type="radio" name="has_plans" value="no"> No, we'll need design help</label>
+            </div>
+          </fieldset>
+          <div class="field full">
+            <label for="project-form-notes">Notes</label>
+            <textarea id="project-form-notes" name="notes" required
+                      placeholder="Tell us about the project — size, must-haves, anything we should know."></textarea>
+          </div>
+          <div class="full">
+            <button class="btn btn-primary" type="submit">Request an Estimate</button>
+            <p class="hint">We respond to every request — typically within two business days.</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section alt" aria-labelledby="next-h">
+    <div class="wrap">
+      <div class="section-head center">
+        <h2 id="next-h">What happens next</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card"><span class="step-index" aria-hidden="true">01</span><h4>We review &amp; respond</h4><p>A real person reads every request and replies — typically within two business days.</p></div>
+        <div class="card"><span class="step-index" aria-hidden="true">02</span><h4>We talk it through</h4><p>A call or site visit to understand the vision, the property, and the constraints.</p></div>
+        <div class="card"><span class="step-index" aria-hidden="true">03</span><h4>You get a clear proposal</h4><p>Scope, budget, and timeline in writing, documented clearly, with no surprises.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">AVODAH CONTRACTORS</p>
+        <p class="footer-motto">Work · Worship · Service</p>
+        <p>Expert general contractors stewarding large, complex building projects from design to finish — down to the smallest details.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="custom.html">Custom</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+          <li><a href="process.html">Our Process</a></li>
+          <li><a href="about.html">Our Culture</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="start-a-project.html">Start Your Project</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li>6655 E Lincoln Way, Wooster, Ohio 44691</li>
+          <li><a href="tel:+13306011324">330-601-1324</a></li>
+          <li><a href="mailto:sales@avodahcontractors.com">sales@avodahcontractors.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Avodah Contractors. All rights reserved.</span>
+      <span>Wooster, Ohio · Serving a 50-mile radius</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
