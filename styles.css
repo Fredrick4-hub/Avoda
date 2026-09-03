@@ -609,7 +609,7 @@ body.nav-overlay .site-header.at-top .nav-toggle .bars::after { background: #fff
   margin-bottom: 1rem;
   width: fit-content;
 }
-.card .step-index { display: inline-block; }
+.card .step-index, .next-step .step-index { display: inline-block; }
 .process-text h3 { font-size: clamp(1.2rem, 2.4vw, 1.7rem); }
 .process-text p { max-width: 48ch; }
 .process-media { position: relative; min-height: 260px; }
@@ -1495,24 +1495,14 @@ main section[id] { scroll-margin-top: 96px; }
 }
 @media (min-width: 760px) { .next-steps { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
 .next-step { color: #f3dfe2; }
-.next-step h4 {
-  font-family: var(--font-body);
-  font-weight: 600;
-  color: #fff;
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
-}
-.next-step p { margin: 0; font-size: 0.92rem; line-height: 1.6; }
-/* Same treatment as .step-index (Process stages / Avodah Difference cards),
-   recolored for legibility on the red CTA background. */
+.next-step h4 { color: #fff; }
+.next-step p { margin: 0; }
+/* Identical to .step-index (Process stages / "What happens next" cards) —
+   only the colors change for legibility on the red CTA background. Spacing,
+   leading, and rule width are inherited so both sections read the same. */
 .step-index.on-red {
   color: #fff;
   border-bottom-color: #fff;
-  /* Tight leading so the rule sits directly beneath the digits (they read as
-     one unit), then a single balanced gap down to the heading. */
-  line-height: 1;
-  padding-bottom: 0.3rem;
-  margin-bottom: 0.85rem;
 }
 
 /* ---------- Values triad (Culture — nine values, three groups) ---------- */
