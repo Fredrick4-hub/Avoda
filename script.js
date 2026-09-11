@@ -9,10 +9,46 @@
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.site-nav');
   if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('open');
+    function setNav(open) {
+      nav.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    toggle.addEventListener('click', function () {
+      setNav(!nav.classList.contains('open'));
     });
+    // Escape closes the menu and puts focus back on the button that opened it,
+    // so keyboard users are not stranded inside an open overlay.
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        setNav(false);
+        toggle.focus();
+      }
+    });
+    // Tabbing past the last link, or clicking outside, closes the menu.
+    document.addEventListener('focusin', function (e) {
+      if (nav.classList.contains('open') &&
+          !nav.contains(e.target) && e.target !== toggle) {
+        setNav(false);
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') &&
+          !nav.contains(e.target) && !toggle.contains(e.target)) {
+        setNav(false);
+      }
+    });
+  }
+
+  /* ---------- Hero video: honour prefers-reduced-motion ----------
+     The markup autoplays so it works without JS, but people who have asked
+     their OS for reduced motion should keep the still poster (WCAG 2.2.2).
+     Removing the attribute matters for Safari, which will otherwise resume
+     playback on its own after the pause. */
+  var heroVideo = document.querySelector('video.hero-bg');
+  if (heroVideo && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    heroVideo.removeAttribute('autoplay');
+    heroVideo.pause();
   }
 
   /* ---------- Sticky header: reveal on scroll up, hide on scroll down ---------- */
@@ -186,9 +222,25 @@
     });
     document.addEventListener('keydown', function (e) {
       if (!lightbox.classList.contains('open')) { return; }
-      if (e.key === 'Escape') { closeLightbox(); }
-      else if (e.key === 'ArrowLeft') { goTo(-1); }
-      else if (e.key === 'ArrowRight') { goTo(1); }
+      if (e.key === 'Escape') { closeLightbox(); return; }
+      if (e.key === 'ArrowLeft') { goTo(-1); return; }
+      if (e.key === 'ArrowRight') { goTo(1); return; }
+      // Focus trap: the lightbox is aria-modal, so Tab must cycle inside it
+      // rather than walking onto the page still rendered behind the overlay.
+      if (e.key === 'Tab') {
+        var focusable = Array.prototype.filter.call(
+          lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'),
+          function (el) { return !el.hidden && !el.disabled && el.offsetParent !== null; }
+        );
+        if (!focusable.length) { return; }
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      }
     });
   }
 

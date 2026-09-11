@@ -1,0 +1,10 @@
+# Avodah Contractors — https://avodahcontractors.com
+User-agent: *
+Allow: /
+
+# No crawl value, and they waste crawl budget
+Disallow: /*?*fbclid=
+Disallow: /*?*gclid=
+Disallow: /*?*utm_
+
+Sitemap: https://avodahcontractors.com/sitemap.xml

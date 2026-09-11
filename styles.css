@@ -40,7 +40,7 @@ body {
   color: var(--ink);
   background: var(--paper);
 }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: var(--red); }
 a:focus-visible, button:focus-visible, input:focus-visible,
 select:focus-visible, textarea:focus-visible, summary:focus-visible {
@@ -61,6 +61,17 @@ h1 { font-size: clamp(1.75rem, 5vw, 2.9rem); }
 h2 { font-size: clamp(1.35rem, 3.5vw, 2rem); }
 h3 { font-size: 1.05rem; letter-spacing: 0.1em; }
 h4 { font-family: var(--font-body); font-weight: 600; color: var(--black); margin: 0 0 0.4em; }
+/* Step-card headings are h3 for a valid outline (h2 -> h3), but keep the
+   lighter body-font treatment they had as h4. */
+.card h3, .next-step h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 1.35;
+  margin: 0 0 0.4em;
+}
 p { margin: 0 0 1em; }
 p:last-child { margin-bottom: 0; }
 
@@ -295,7 +306,14 @@ p:last-child { margin-bottom: 0; }
   padding-top: 3rem;
   padding-bottom: 4.5rem;
 }
-.hero-video h1 { color: #fff; max-width: 16ch; text-shadow: 0 2px 18px rgba(0,0,0,0.4); }
+.hero-video h1 {
+  color: #fff;
+  /* "Complexity made enjoyable" sits on one line once there is room for it;
+     below that it wraps naturally rather than at a fixed 16ch. Deliberately
+     no white-space:nowrap — that would overflow if the heading font changes. */
+  max-width: none;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.4);
+}
 .hero-video p.lede { color: #f1efed; text-shadow: 0 1px 10px rgba(0,0,0,0.5); }
 @media (max-width: 600px) { .hero-video { min-height: 88vh; } }
 
@@ -490,7 +508,7 @@ body.nav-overlay .site-header.at-top .nav-toggle .bars::after { background: #fff
   color: #fff;
 }
 .path-photo-top .eyebrow::before, .path-photo-top .eyebrow::after { background: #fff; }
-.path-photo-top h3 {
+.path-photo-top h2 {
   color: #fff;
   font-size: clamp(1.6rem, 4vw, 2.5rem);
   margin: 0;
@@ -1420,7 +1438,7 @@ main section[id] { scroll-margin-top: 96px; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.compare-heads .head-a { color: #8d8889; background: var(--warm); }
+.compare-heads .head-a { color: #736e6f; background: var(--warm); } /* 4.64:1 on --warm (was #8d8889, 3.23:1) */
 .compare-heads .head-b { color: var(--red); background: var(--paper); }
 .compare-row {
   display: grid;
@@ -1444,7 +1462,7 @@ main section[id] { scroll-margin-top: 96px; }
   text-transform: uppercase;
   margin-bottom: 0.3rem;
 }
-.compare-a .compare-tag { color: #a09b9c; }
+.compare-a .compare-tag { color: #736e6f; } /* 4.64:1 on --warm (was #a09b9c, 2.54:1) */
 .compare-b .compare-tag { color: var(--red); }
 @media (min-width: 780px) {
   .compare-heads { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
@@ -1495,7 +1513,7 @@ main section[id] { scroll-margin-top: 96px; }
 }
 @media (min-width: 760px) { .next-steps { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
 .next-step { color: #f3dfe2; }
-.next-step h4 { color: #fff; }
+.next-step h3 { color: #fff; }
 .next-step p { margin: 0; }
 /* Identical to .step-index (Process stages / "What happens next" cards) —
    only the colors change for legibility on the red CTA background. Spacing,
