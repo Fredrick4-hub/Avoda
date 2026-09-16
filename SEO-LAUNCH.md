@@ -191,6 +191,24 @@ the build was done properly.
    headings fall back to Poppins — the body font — so most visitors see headings
    that look like body text. A hosted alternative needs picking.
 7. **Privacy policy + terms.** Forms collect data and the Pixel will run.
+8. **The five build stages are named differently in two places.** Copy decision,
+   so the wording needs to come from Avodah rather than us. Steps 2, 4 and 5
+   disagree:
+
+   | # | Homepage | Our Process | |
+   |---|---|---|---|
+   | 1 | Design & Budget | Design & Budget | match |
+   | 2 | Site Prep & Foundation | Permits, Site Prep & Foundation | **differs** |
+   | 3 | Structural Framing & Dry-In | Framing & Dry-In | close |
+   | 4 | Interior Finishes & Exterior Shell | Selections & Finishes | **differs** |
+   | 5 | Final Closeout & Reveal | Finishing Touches & Move-In | **differs** |
+
+   Worth settling before launch rather than after: the homepage and Our Process
+   are the two pages most likely to rank for "how it works" style searches, and
+   Google reads the step headings on both.
+
+   Once the wording is confirmed, it is a small edit — the homepage steps are in
+   `index.html` (the scrolly section), the Our Process ones in `process.html`.
 
 ## 4. Recommended, not done
 
