@@ -936,6 +936,10 @@ body.nav-overlay .site-header.at-top .nav-toggle .bars::after { background: #fff
    like the Custom/Commercial category grids have. */
 #team .category-grid { grid-template-columns: 1fr; }
 @media (min-width: 600px) { #team .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* These cards are text-only for launch (photos may come later), so the copy
+   needs the breathing room the image used to provide above it. Scoped to
+   #team so photo cards on Custom/Commercial keep their tighter spacing. */
+#team .category-body { padding-top: 1.4rem; }
 /* Shorter description (Custom/Commercial Window 3) pairs with a photo that
    now takes the larger share of the row — text condenses into more lines,
    photo grows, right edge stays anchored to the wrap since it's still the
@@ -1213,7 +1217,10 @@ input[type="range"] { accent-color: var(--red); padding: 0; }
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 @media (min-width: 600px) { .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; } }
-@media (min-width: 900px) { .category-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* auto-fit collapses unused tracks, so a row always fills the width whatever
+   the card count: 3 cards give 3 wide columns, 4+ cards cap at 4 columns
+   (240px min keeps the cap at 4 for the 1120px content width). */
+@media (min-width: 900px) { .category-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
 
 .category-card {
   position: relative;
@@ -1280,7 +1287,9 @@ input[type="range"] { accent-color: var(--red); padding: 0; }
 /* Closing prompt — fills the final grid row on both pages, so neither page
    ends on a ragged row, and the section gains a conversion path it lacked. */
 .category-cta {
-  grid-column: 1 / -1;
+  /* Sits after the card grid, not inside it, so auto-fit can collapse unused
+     tracks. margin-top replaces the grid row-gap it used to inherit. */
+  margin-top: 1.75rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1290,7 +1299,6 @@ input[type="range"] { accent-color: var(--red); padding: 0; }
   border: 1px solid var(--line);
   border-left: 4px solid var(--red);
   padding: 1.5rem 1.75rem;
-  margin-top: 0.5rem;
 }
 .category-cta p { margin: 0; max-width: 62ch; }
 .category-cta .btn { flex: none; }

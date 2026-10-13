@@ -27,6 +27,7 @@
   <meta name="twitter:image:alt" content="Aerial view of a custom Avodah-built farmhouse on acreage in rural Ohio">
 
   <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
@@ -292,23 +293,19 @@
 
   <!-- Window 1: Video hero -->
   <section class="hero hero-video" aria-label="Avodah Contractors introduction">
-    <!-- Background video: 8s 720p loop, ~940 KB (was a 29s 1080p pair totalling
-         ~16.5 MB). It sits behind a scrim, so 720p is indistinguishable here.
-         The poster is frame 0 of this same loop, so there is no visible jump
-         when the video takes over. It is preloaded in <head> and is the LCP
-         element; the video itself is deferred so it never blocks first paint.
-         Autoplay must be muted + playsinline on mobile.
-         prefers-reduced-motion users keep the poster only (see script.js). -->
-    <video class="hero-bg" autoplay muted loop playsinline preload="metadata"
-           poster="images/avodah-header-poster.jpg" aria-hidden="true"
-           width="1280" height="720">
+    <!-- Background video. Optimized to ~8 MB while keeping 1080p / 30fps.
+         Poster shows instantly; video autoplays muted & looped (required for
+         autoplay on mobile). prefers-reduced-motion users see the poster only. -->
+    <video class="hero-bg" autoplay muted loop playsinline
+           poster="images/avodah-header-poster.jpg" aria-hidden="true">
       <source src="images/avodah-header.mp4" type="video/mp4">
+      <source src="images/avodah-header.webm" type="video/webm">
     </video>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="wrap">
       <p class="eyebrow">Work &middot; Worship &middot; Service</p>
       <h1>Complexity made enjoyable</h1>
-      <p class="lede">If you&rsquo;ve got an idea, we&rsquo;ll handle the overwhelming details. As design-build general contractors, we make the steps to your dream building clear and enjoyable, maintaining a clear budget and timeline. Let&rsquo;s make your &lsquo;maybe someday&rsquo; start today.</p>
+      <p class="lede">If you&rsquo;ve got an idea, we&rsquo;ll handle the overwhelming details. As a design-build general contractor, we make the steps to your dream building clear and enjoyable, maintaining a clear budget and timeline. Let&rsquo;s make your &lsquo;maybe someday&rsquo; start today.</p>
       <div class="actions">
         <a class="btn btn-primary" href="start-a-project.html">Start Your Project</a>
         <a class="btn btn-light" href="process.html">See How We Work</a>
@@ -350,7 +347,7 @@
           <h2>Commercial</h2>
         </div>
         <div class="path-photo-caption">
-          <p>Agriculture buildings, pole barns, warehouses, auto, etc &ndash; we make every decision easy and align with your needs.</p>
+          <p>Agriculture buildings, pole barns, warehouses, and retail - we make every decision easy and aligned with your needs.</p>
           <span class="go">Explore commercial builds</span>
         </div>
       </a>
@@ -628,19 +625,19 @@
           </div>
           <div class="scrolly-box" data-phase="2">
             <h3>Step 2: Site Prep &amp; Foundation</h3>
-            <p>Capturing the initial layout, heavy machinery, or foundation pour to establish the baseline scale of the project.</p>
+            <p>Permits, Site Prep & Foundation: Acquiring permits, excavation and site preparation for the foundation utilities.</p>
           </div>
           <div class="scrolly-box" data-phase="3">
             <h3>Step 3: Structural Framing &amp; Dry-In</h3>
-            <p>Documenting timber frames, trusses, or structural elements going up to highlight the scale and geometry of the building.</p>
+            <p>Framing & Dry-In: Timber frames, trusses, roof, and windows highlight the scale and geometry of the building.</p>
           </div>
           <div class="scrolly-box" data-phase="4">
             <h3>Step 4: Interior Finishes &amp; Exterior Shell</h3>
-            <p>Documenting specialized siding, roofing, and early custom interior finishes as the structure nears completion.</p>
+            <p>Selections & Finishes: Siding, roofing, mechanicals, drywall, cabinetry, trim chosen one by one.</p>
           </div>
           <div class="scrolly-box" data-phase="5">
             <h3>Step 5: Final Closeout &amp; Reveal</h3>
-            <p>Architectural coverage of the completed space, custom finishes, lighting, and the ready-for-handover build.</p>
+            <p>Finishing Touches & Move-In: Final details checked and the keys handed over.</p>
           </div>
           </div>
         </div>
@@ -652,7 +649,7 @@
   <section class="deeper-dive" aria-label="See our full process">
     <div class="wrap">
       <div class="process-footer">
-        <p class="process-footer-text">Looking for a deeper dive into how we do what we do? Click the button to see all the details to decide if our process is what you're after.</p>
+        <p class="process-footer-text">Looking for a deeper dive into what we do? See all the details to decide if our process is what you're after.</p>
         <a class="btn btn-light" href="process.html">See the Full Process</a>
       </div>
     </div>
