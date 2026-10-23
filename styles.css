@@ -616,7 +616,7 @@ body.nav-overlay .site-header.at-top .nav-toggle .bars::after { background: #fff
     padding-right: max(1.25rem, calc((100vw - var(--max)) / 2 + 1.25rem));
   }
 }
-.process-step:nth-child(even) .process-text { background: var(--warm); }
+/* .process-step:nth-child(odd) .process-text { background: var(--warm); } */
 .process-text .step-index, .card .step-index, .next-step .step-index {
   font-family: var(--font-head);
   color: var(--red);
