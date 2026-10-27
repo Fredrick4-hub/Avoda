@@ -81,6 +81,11 @@ ErrorDocument 404 /404.html
   <FilesMatch "\.(css|js)$">
     Header set Cache-Control "public, max-age=3600, must-revalidate"
   </FilesMatch>
+  # Google indexes PDFs. Keep the gated guide out of search results so it
+  # can't be downloaded without going through the form.
+  <FilesMatch "\.pdf$">
+    Header set X-Robots-Tag "noindex, nofollow"
+  </FilesMatch>
   <FilesMatch "\.(html|xml|txt|webmanifest)$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>

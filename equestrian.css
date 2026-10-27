@@ -260,8 +260,15 @@
   box-shadow: 0 24px 48px rgba(40, 20, 20, 0.28);
 }
 @media (prefers-reduced-motion: reduce) { .ty-cover img { transform: none; } }
-@media (min-width: 860px) {
-  .ty-hero { grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 5rem; }
+/* Two columns only once there is genuinely room for both: splitting at 860px
+   left the text column too narrow and pushed the lede onto a third line.
+   Below this the hero stacks and the copy gets the full width. */
+@media (min-width: 1000px) {
+  /* Fluid cover column — a fixed 340px starved the text column at ~1024px. */
+  .ty-hero {
+    grid-template-columns: minmax(0, clamp(240px, 24vw, 340px)) minmax(0, 1fr);
+    gap: clamp(2.5rem, 4vw, 5rem);
+  }
 }
 
 .ty-badge {
@@ -274,7 +281,11 @@
 .ty-badge svg { flex: 0 0 auto; }
 .ty-h1 { margin: 0; color: var(--red); }
 .ty-lede {
-  margin: 1.25rem 0 0; max-width: 56ch;
+  margin: 1.25rem 0 0;
+  /* 56ch tipped this copy onto a third line; 62ch holds it at two (~71
+     chars/line, still inside the readable range) with a little buffer.
+     The grid column caps it at ~700px on desktop anyway. */
+  max-width: 62ch;
   font-size: 1.1rem; color: var(--ink);
 }
 .ty-download { margin-top: 1.875rem; }
