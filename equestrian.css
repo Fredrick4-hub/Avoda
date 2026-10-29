@@ -74,7 +74,7 @@
 }
 
 /* --- Crimson CTA strips --- */
-.eq-strip { background: var(--red); color: #fff; padding: 2.25rem 0; }
+.eq-strip { background: var(--red); font-family: var(--font-head); color: #fff; padding: 2.25rem 0; }
 .eq-strip-inner {
   display: flex; flex-wrap: wrap; align-items: center;
   justify-content: space-between; gap: 1.25rem;
@@ -98,6 +98,7 @@
   width: 100%;
   height: clamp(160px, 26vw, 340px);
   object-fit: cover;
+  object-position: center bottom;
   display: block;
 }
 .eq-steps { margin: 0; padding: 0; list-style: none; }
@@ -169,7 +170,7 @@
   text-transform: none;
 }
 .eq-project > p { margin: 0.4rem 0 0; }
-.eq-stats { display: flex; flex-wrap: wrap; gap: 0.9rem 2.25rem; margin: 1.1rem 0 0; }
+.eq-stats { display: flex; flex-wrap: wrap; gap: 0.9rem 2.25rem; margin: 1.85rem 0 0; }
 .eq-stats dt { font-size: 0.8rem; color: var(--ink); }
 .eq-stats dd { margin: 0; font-size: 1.05rem; font-weight: 600; color: var(--black); }
 @media (min-width: 820px) { .eq-projects { grid-template-columns: 1fr 1fr; gap: 2rem; } }
