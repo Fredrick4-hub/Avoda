@@ -1397,6 +1397,26 @@ input[type="range"] { accent-color: var(--red); padding: 0; }
    .feature-img above, because the span is the point of the photo. */
 .ab-photo { min-height: 0; height: auto; aspect-ratio: 3 / 2; }
 
+/* Two-photo variant of the case collage, for a project that has one
+   landscape and one portrait shot instead of the usual three. Same overall
+   height as .wide-final, so cases sitting side by side still line up; the
+   columns are split to suit the two orientations. */
+.project-case-collage.collage-pair {
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: 350px;
+}
+@media (min-width: 500px) { .project-case-collage.collage-pair { grid-template-rows: 430px; } }
+.collage-pair .pair-wide,
+.collage-pair .pair-tall {
+  display: block; width: 100%; height: 100%; overflow: hidden;
+  border: 0; padding: 0; margin: 0; background: none; cursor: zoom-in;
+}
+.collage-pair .pair-wide img,
+.collage-pair .pair-tall img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* The landscape shot loses most of its width to a tall cell, so bias the
+   crop towards the stove and the glazing rather than the dead centre. */
+.collage-pair .pair-wide img { object-position: 26% center; }
+
 /* ---------- Map embed ---------- */
 .map-embed { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; line-height: 0; }
 .map-embed iframe { display: block; width: 100%; }
