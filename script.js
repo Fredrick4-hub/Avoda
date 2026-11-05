@@ -148,8 +148,11 @@
       var phSource = item.querySelector('.ph');
       var figcaption = item.querySelector('figcaption');
       var caption = figcaption ? figcaption.textContent : (item.getAttribute('data-label') || '');
-      var alt = item.querySelector('img')
-        ? item.querySelector('img').getAttribute('alt') : (item.getAttribute('data-label') || 'Project photo');
+      /* data-alt lets a lightbox-only entry supply alt text without carrying a
+         thumbnail <img>, which the browser downloads even when it is hidden. */
+      var alt = item.getAttribute('data-alt')
+        || (item.querySelector('img')
+          ? item.querySelector('img').getAttribute('alt') : (item.getAttribute('data-label') || 'Project photo'));
       if (full) {
         // A real photo is available.
         if (lbImg) { lbImg.setAttribute('src', full); lbImg.setAttribute('alt', alt); lbImg.hidden = false; }
