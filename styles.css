@@ -241,7 +241,10 @@ p:last-child { margin-bottom: 0; }
 .site-nav .nav-cta:hover { background: var(--red); color: #fff; }
 .site-nav a.nav-cta[aria-current="page"] { border-bottom: 2px solid var(--red); padding-bottom: 0.5rem; }
 
-@media (max-width: 860px) {
+/* 899, not 860: with Equestrian added the six items plus the CTA no longer
+   fit on one line below ~900px, and the bar grew to two rows. Collapse to the
+   menu button until there is genuinely room. */
+@media (max-width: 899px) {
   .nav-toggle { display: block; }
   .site-nav { display: none; width: 100%; }
   .site-nav.open { display: block; }
@@ -417,8 +420,9 @@ body.nav-overlay .site-header.at-top .nav-cta:hover { background: #fff; color: v
 body.nav-overlay .site-header.at-top .nav-toggle .bars,
 body.nav-overlay .site-header.at-top .nav-toggle .bars::before,
 body.nav-overlay .site-header.at-top .nav-toggle .bars::after { background: #fff; }
-/* On mobile the open menu needs a solid backdrop even at the top */
-@media (max-width: 860px) {
+/* On mobile the open menu needs a solid backdrop even at the top.
+   Must track the collapse breakpoint above. */
+@media (max-width: 899px) {
   body.nav-overlay .site-header.at-top .site-nav.open { background: var(--black); }
 }
 
@@ -1379,6 +1383,19 @@ input[type="range"] { accent-color: var(--red); padding: 0; }
 .project-case-collage.wide-final .case-design { grid-column: 1; grid-row: 1; }
 .project-case-collage.wide-final .case-progress { grid-column: 2; grid-row: 1; }
 .project-case-collage.wide-final .case-final { grid-column: 1 / 3; grid-row: 2; }
+
+/* ---------- American Buildings partner band (Commercial) ----------
+   The same .case block as "Built for Your Business" above it, mirrored so
+   the photo sits on the opposite side. The heading still comes first in the
+   DOM, so a phone reads title-then-photo; only the desktop grid swaps. */
+@media (min-width: 768px) {
+  .case--reverse > :first-child { grid-column: 2; grid-row: 1; }
+  .case--reverse > .ab-photo    { grid-column: 1; grid-row: 1; }
+}
+.ab-logo { display: block; width: 100%; max-width: 220px; height: auto; margin-top: 1.75rem; }
+/* Shown whole rather than cropped to the text column, unlike the plain
+   .feature-img above, because the span is the point of the photo. */
+.ab-photo { min-height: 0; height: auto; aspect-ratio: 3 / 2; }
 
 /* ---------- Map embed ---------- */
 .map-embed { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; line-height: 0; }

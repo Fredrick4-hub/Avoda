@@ -40,6 +40,11 @@ ErrorDocument 404 /404.html
   # 3. /index.html -> /   (one URL for the homepage, matching the canonical tag)
   RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
   RewriteRule ^index\.html$ / [R=301,L]
+
+  # 4. The Custom page was renamed to Residential. Keep the old URL working
+  #    and pass its ranking to the new one — it was live and indexed, and
+  #    anything already linking to it would otherwise 404.
+  RewriteRule ^custom\.html$ /residential.html [R=301,L]
 </IfModule>
 
 # --- Compression -------------------------------------------------------------

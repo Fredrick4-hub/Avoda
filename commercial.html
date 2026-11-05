@@ -115,6 +115,13 @@
             "@type": "Service",
             "name": "Auto Facilities"
           }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Wedding Venues"
+          }
         }
       ]
     }
@@ -137,8 +144,9 @@
     </button>
     <nav class="site-nav" id="main-nav" aria-label="Main">
       <ul>
-        <li><a href="custom.html">Custom</a></li>
+        <li><a href="residential.html">Residential</a></li>
         <li><a href="commercial.html" aria-current="page">Commercial</a></li>
+        <li><a href="equestrian.html">Equestrian</a></li>
         <li><a href="process.html">Our Process</a></li>
         <li><a href="about.html">Our Culture</a></li>
         <li><a class="nav-cta" href="start-a-project.html">Start Your Project</a></li>
@@ -179,6 +187,16 @@
           </div>
           <button class="category-hit" data-lightbox-group="gallery-warehouses">
             <span class="sr-only">View photos of Warehouses / Manufacturing</span>
+          </button>
+        </div>
+        <div class="category-card">
+          <div class="category-media"><img src="images/custom/wedding-venues-carousel.jpg" width="1800" height="1200" alt="The Lighted Lantern event venue entrance with timber-frame portico" loading="lazy"></div>
+          <div class="category-body">
+            <h2 class="category-name">Wedding Venues</h2>
+            <span class="category-go" aria-hidden="true">View photos</span>
+          </div>
+          <button class="category-hit" data-lightbox-group="gallery-wedding-venues">
+            <span class="sr-only">View photos of Wedding Venues</span>
           </button>
         </div>
         <!--<div class="category-card">
@@ -227,6 +245,13 @@
     <button class="gallery-item" data-label="Warehouses / Manufacturing" data-full="images/commercial/warehouses-mfg-3.jpg"><img src="images/commercial/warehouses-mfg-3.jpg" width="1800" height="1200" alt="Warehouse facility interior view" loading="lazy"></button>
     <button class="gallery-item" data-label="Warehouses / Manufacturing" data-full="images/commercial/warehouses-mfg-4.jpg"><img src="images/commercial/warehouses-mfg-4.jpg" width="1800" height="1200" alt="Manufacturing facility interior view" loading="lazy"></button>
   </div>
+  <div class="gallery-set" id="gallery-wedding-venues" hidden>
+    <button class="gallery-item" data-label="Wedding Venues" data-full="images/custom/wedding-venues-carousel.jpg"><img src="images/custom/wedding-venues-carousel.jpg" width="1800" height="1200" alt="The Lighted Lantern event venue entrance with timber-frame portico" loading="lazy"></button>
+    <button class="gallery-item" data-label="Wedding Venues" data-full="images/custom/wedding-venues-1.jpg"><img src="images/custom/wedding-venues-1.jpg" width="1800" height="1200" alt="Timber-frame event hall set for a reception dinner" loading="lazy"></button>
+    <button class="gallery-item" data-label="Wedding Venues" data-full="images/custom/wedding-venues-2.jpg"><img src="images/custom/wedding-venues-2.jpg" width="1200" height="1800" alt="Event venue staircase beneath a wagon-wheel chandelier" loading="lazy"></button>
+    <button class="gallery-item" data-label="Wedding Venues" data-full="images/custom/wedding-venues-3.jpg"><img src="images/custom/wedding-venues-3.jpg" width="1800" height="1200" alt="Event venue lower level with catering counter and mezzanine" loading="lazy"></button>
+    <button class="gallery-item" data-label="Wedding Venues" data-full="images/custom/wedding-venues-4.jpg"><img src="images/custom/wedding-venues-4.jpg" width="1800" height="1200" alt="Event venue upper mezzanine overlooking the bar area" loading="lazy"></button>
+  </div>
   <div class="gallery-set" id="gallery-retail" hidden>
     <button class="gallery-item" data-label="Retail" data-full="images/commercial/retail-1.jpg"><img src="images/commercial/retail-1.jpg" width="1800" height="1014" alt="Retail building exterior with covered porch and flower displays" loading="lazy"></button>
   </div>
@@ -242,6 +267,27 @@
           <p><a class="btn btn-ghost" href="process.html">Walk Through Our Process</a></p>
         </div>
         <img class="feature-img" src="images/commercial/commercial-feature-1.jpg" width="1800" height="1200" alt="Interior hallway of a finished Avodah commercial storage facility" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- American Buildings partnership. Same .case block as "Built for Your
+       Business" above, mirrored so the photo sits on the opposite side. No
+       CTA by request, and no visible caption: the project description rides
+       in the photo's alt text. -->
+  <section class="section section-grey" aria-labelledby="comm-ab-h">
+    <div class="wrap">
+      <div class="case case--reverse">
+        <div>
+          <p class="eyebrow">An American Buildings Partner</p>
+          <h2 id="comm-ab-h">Quality Starts with What We Build With</h2>
+          <p>As an American Buildings dealer, we use their custom-engineered steel building systems for many of our commercial projects, from warehouses to manufacturing facilities. Their flexible building systems give us a dependable starting point for structures designed around the needs of your business.</p>
+          <img class="ab-logo" src="images/commercial/american-buildings-logo.png" width="720" height="280"
+               alt="American Buildings, a Nucor company" loading="lazy" decoding="async">
+        </div>
+        <img class="feature-img ab-photo" src="images/commercial/woodland-acres-clear-span-arena.jpg" width="1800" height="1200"
+             alt="Woodland Acres &mdash; the interior of a 27,560 sq ft clear-span steel building, its frame spanning the full width with no interior columns"
+             loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -312,7 +358,7 @@
         <h3>Pages</h3>
         <ul>
           <li><a href="./">Home</a></li>
-          <li><a href="custom.html">Custom</a></li>
+          <li><a href="residential.html">Residential</a></li>
           <li><a href="commercial.html">Commercial</a></li>
           <li><a href="process.html">Our Process</a></li>
           <li><a href="about.html">Our Culture</a></li>
