@@ -1654,6 +1654,17 @@ main section[id] { scroll-margin-top: 96px; }
    the section, with the building photo beneath it. */
 
 /* Terms page spacing */
+/* The legal pages carry no hero photo, so .process-hero's scrim gradients
+   were shading bare --stone. Solid, matching the footer. */
+.page-legal .process-hero { background: var(--black); }
+/* Crimson reads at 1.7:1 on that black, so the eyebrow and the inline link
+   in the lede go white instead. */
+.page-legal .process-hero .eyebrow { color: #fff; }
+.page-legal .process-hero .eyebrow::before,
+.page-legal .process-hero .eyebrow::after { background: #fff; }
+.page-legal .process-hero a { color: #fff; text-decoration: underline; }
+.page-legal .process-hero a:hover { color: var(--stone); }
+
 /* Legal-page headings: the shared .process-hero cap of 18ch wrapped
    "Terms of Service" onto a second line. Let the container do the limiting
    instead. Deliberately no white-space:nowrap - that would overflow if the
