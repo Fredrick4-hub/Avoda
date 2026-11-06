@@ -15,9 +15,20 @@
   status = 301
   force = true
 
-# The Custom page was renamed to Residential. A permanent redirect keeps the
-# old URL working and passes its ranking across; it was live and indexed, so
-# dropping it would 404 every existing link.
+# The Custom page was renamed to Residential. Permanent redirects keep the old
+# URLs working and pass their ranking across; the page was live and indexed, so
+# dropping them would 404 every existing link and bookmark.
+#
+# Both forms are needed. Netlify's pretty-URL handling rewrote every internal
+# link to the extensionless form, so /custom is what the site itself linked to
+# and what is most likely to be indexed or bookmarked; /custom.html is what the
+# source files used.
+[[redirects]]
+  from = "/custom"
+  to = "/residential.html"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/custom.html"
   to = "/residential.html"

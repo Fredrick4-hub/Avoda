@@ -41,9 +41,11 @@ ErrorDocument 404 /404.html
   RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
   RewriteRule ^index\.html$ / [R=301,L]
 
-  # 4. The Custom page was renamed to Residential. Keep the old URL working
-  #    and pass its ranking to the new one — it was live and indexed, and
-  #    anything already linking to it would otherwise 404.
+  # 4. The Custom page was renamed to Residential. Keep the old URLs working
+  #    and pass their ranking to the new one — the page was live and indexed,
+  #    and anything already linking to it would otherwise 404. Both the
+  #    extensionless and .html forms, with or without a trailing slash.
+  RewriteRule ^custom/?$ /residential.html [R=301,L]
   RewriteRule ^custom\.html$ /residential.html [R=301,L]
 </IfModule>
 
