@@ -92,6 +92,13 @@
 
     window[cb] = function (res) {
       var msg = (res && res.msg) || '';
+      /* Mailchimp wants a captcha (anti-spam): hand over to its hosted page,
+         which shows the captcha and then completes the signup. */
+      if (res && res.result === 'redirect' && /captcha/i.test(msg)) {
+        cleanup();
+        form.submit();   /* native POST to Mailchimp; skips this submit handler */
+        return;
+      }
       if (res && res.result === 'success') { cleanup(); goToThankYou(); return; }
       /* Already on Avodah's list: still give them the guide. */
       if (/already subscribed/i.test(msg)) { cleanup(); goToThankYou(); return; }
